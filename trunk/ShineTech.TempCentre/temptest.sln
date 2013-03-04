@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "temptest", "temptest\temptest.csproj", "{F52EE23D-4BD7-4CB1-B3C0-B9DB4813EE83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TempSen", "TempSenLib\TempSen.csproj", "{F035A30D-5A64-4E01-B43F-F1B843A153B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TempsenLibHid", "TempsenLibHid\TempsenLibHid.csproj", "{5C3C31C9-A427-4C38-B5C6-E5A70BA7CA40}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F52EE23D-4BD7-4CB1-B3C0-B9DB4813EE83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F52EE23D-4BD7-4CB1-B3C0-B9DB4813EE83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F52EE23D-4BD7-4CB1-B3C0-B9DB4813EE83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F52EE23D-4BD7-4CB1-B3C0-B9DB4813EE83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F035A30D-5A64-4E01-B43F-F1B843A153B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F035A30D-5A64-4E01-B43F-F1B843A153B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F035A30D-5A64-4E01-B43F-F1B843A153B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F035A30D-5A64-4E01-B43F-F1B843A153B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C3C31C9-A427-4C38-B5C6-E5A70BA7CA40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C3C31C9-A427-4C38-B5C6-E5A70BA7CA40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C3C31C9-A427-4C38-B5C6-E5A70BA7CA40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C3C31C9-A427-4C38-B5C6-E5A70BA7CA40}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

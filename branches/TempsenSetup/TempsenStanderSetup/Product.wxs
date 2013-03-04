@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
+  <Product Id="A5A54D26-7379-4E79-8443-1D83566B42B7" Name="TempCentre Lite" Language="1033" Version="1.0.0" Manufacturer="TempSen Electronics Company" UpgradeCode="6e68f1a9-4821-49f2-adc6-ea687812fdfa">
+    <Package InstallerVersion="200" Compressed="yes" Comments="tempsen tempurature reader soft" />
+
+    <Condition Message="This application requires .NET Framework 4.0. Please install the .NET Framework then run this installer again.">
+      <![CDATA[Installed OR NETFRAMEWORK40FULL]]>
+    </Condition>
+    
+    <Media Id="1" Cabinet="media1.cab" EmbedCab="yes" />
+    <Icon Id="TempCentre.exe" SourceFile="..\..\$(var.BUILD)\TempCentre.exe" />
+    <Icon Id="TempCentre_logo.ico" SourceFile="..\..\$(var.BUILD)\TempCentre_logo.ico" />
+
+    <Feature Id="ProductFeature" Title="Main Application" Level="1">
+      <ComponentGroupRef Id="MainApp"/>
+      <ComponentRef Id="cmpC5BA10CD7577CCE8B2887D06E061E056"/>
+    </Feature>
+    <PropertyRef Id="NETFRAMEWORK40FULL"/>
+    <Property Id="SoftType" Value="0" />
+    <!--1:pro 0:S-->
+    <Property Id="PIDTemplate"><![CDATA[<%%%%-%%%%-%%%%-%%%%>]]></Property>
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLLOCATION" />
+    <Property Id="PREVERSION" Value="0" />
+    <Property Id="INSTALLLOCATION">
+      <RegistrySearch Id="LatestSetupFolder" Root="HKLM" Key="Software\[Manufacturer]\TempCentre" Name="FileFolder" Type="directory" />
+    </Property>
+    <UI Id="myWixUI_InstallDir">
+      <UIRef Id="WixUI_InstallDir"/>
+      <UIRef Id="WixUI_ErrorProgressText"/>
+      <DialogRef Id="UserRegistrationDlg"/>
+      <!--<Publish Dialog="InstallDirDlg" Control="Back" Event="NewDialog" Value="UserRegistrationDlg">1</Publish>-->
+      <Publish Dialog="InstallDirDlg" Control="Next" Event="DoAction" Value="FindDataBase" Order="5">1</Publish>
+      <Publish Dialog="WelcomeDlg" Control="Next" Event="DoAction" Value="FindLatestPath" Order="1">1</Publish>
+      <Publish Dialog="WelcomeDlg" Control="Next" Event="DoAction" Value="NoDowngrade" Order="2">NEWERFOUND</Publish>
+    </UI>
+
+    <Upgrade Id="6e68f1a9-4821-49f2-adc6-ea687812fdfa">
+      <UpgradeVersion OnlyDetect="yes" Property="NEWERFOUND" Minimum="1.0.0" IncludeMinimum="no" />
+    </Upgrade>
+    <Binary Id="TempCentreAction" SourceFile="..\..\$(var.BUILD)\TempCentreCustomAction.CA.dll"/>
+    <CustomAction Id="FindLatestPath" BinaryKey="TempCentreAction" DllEntry="DoSearchLastSetUpDir" />
+    <CustomAction Id="FindDataBase" BinaryKey="TempCentreAction" DllEntry="DoSearchDataBase" />
+    <CustomAction Id='NoDowngrade' BinaryKey="TempCentreAction" DllEntry="FindNewestVersion" />
+    <CustomAction Id='OldFound' BinaryKey="TempCentreAction" DllEntry="RemoveOldVersion"/>
+    <CustomAction Id='UninstallSoft' BinaryKey="TempCentreAction" DllEntry="UninstallSoft"/>
+    <InstallExecuteSequence>
+      <Custom Action='NoDowngrade' After='FindRelatedProducts'>NEWERFOUND</Custom>
+      <Custom Action="UninstallSoft" Before="CostInitialize">REMOVE</Custom>
+    </InstallExecuteSequence>
+    <WixVariable Id="WixUILicenseRtf" Value="..\..\$(var.BUILD)\license.rtf" />
+    <WixVariable Id="WixUIDialogBmp" Value="..\Img\installation.bmp"/>
+    <WixVariable Id="WixUIBannerBmp" Value="..\Img\tempcenter_icon_40px.bmp"/>
+  </Product>
+  <Fragment>
+    <ComponentGroup Id="MainApp">
+      <Component Id="cmp3D9C8B9A2F56782BEE2B81B6008F8E68" Guid="{08721656-C882-4D73-B27F-11297DFE8DCB}" Directory="INSTALLLOCATION">
+        <File Id="filB664E8E6E4BE20B4118CACE682DC4C8C" KeyPath="yes" Source="..\..\$(var.BUILD)\AutoUpdater.exe" />
+      </Component>
+      <Component Id="cmp1707FCE03E1B8F3D265BBAAD68F93145" Guid="{064B10F2-0632-4CCE-8AC3-D50620B2295E}" Directory="INSTALLLOCATION">
+        <File Id="filEA704541976FEF5C36AA852D3CE8AA20" KeyPath="yes" Source="..\..\$(var.BUILD)\AutoUpdater.exe.config" />
+      </Component>
+      <Component Id="cmp0ECF8582970F2CD242F4915632A38900" Guid="{4CCF5B8E-B573-482C-81EA-E757FF851137}" Directory="INSTALLLOCATION">
+        <File Id="filEC397851CAF54B8A224975FB67F0D7F6" KeyPath="yes" Source="..\..\$(var.BUILD)\Babu.Windows.dll" />
+      </Component>
+      <Component Id="cmpF063861CC26A076FDAF7BA3EDCD67821" Guid="{8690FD53-AAB2-4826-BE12-240F2F018B37}" Directory="INSTALLLOCATION">
+        <File Id="filF3727E8F15463E834E74B7D206E8A75A" KeyPath="yes" Source="..\..\$(var.BUILD)\gsdll32.dll" />
+      </Component>
+      <Component Id="cmp59D8AA486106EC4DDB385B46F33E3F8B" Guid="{0554D0BB-88E9-46B1-96F5-8B203CD037C4}" Directory="INSTALLLOCATION">
+        <File Id="fil64D07DAD9B5343C827EB33A4E22A521F" KeyPath="yes" Source="..\..\$(var.BUILD)\Help Lite.chm" />
+      </Component>
+      <Component Id="cmp323D92075837794C0471492BAEC744F7" Guid="{C5E19367-8F7D-4C46-86A6-95BA829A3F02}" Directory="INSTALLLOCATION">
+        <File Id="fil1A6831C7FC7C057A96BC32E9D9996551" KeyPath="yes" Source="..\..\$(var.BUILD)\itextsharp.dll" />
+      </Component>
+      <Component Id="cmp762BE1055698B8F4C8E9CE14469ECD6A" Guid="{47DEAF45-3BAB-4335-8384-776341E2756D}" Directory="INSTALLLOCATION">
+        <File Id="filA8B27E9D34CD1872830C589D8491910E" KeyPath="yes" Source="..\..\$(var.BUILD)\PDFLibNet.dll" />
+      </Component>
+      <Component Id="cmpADA8D0956703BE6CBCC2766629E23B87" Guid="{BB7298D4-FEDC-4A73-9BA7-0BDCA4B7B6F1}" Directory="INSTALLLOCATION">
+        <File Id="filC8C600D289EC2E3FC90D1EDE57A374AD" KeyPath="yes" Source="..\..\$(var.BUILD)\PDFView.dll" />
+      </Component>
+      <Component Id="cmp2F67010CFC55D8C3168132F8B61E806F" Guid="{11285863-D042-4BA4-ACBF-E5E7A1037314}" Directory="INSTALLLOCATION">
+        <File Id="fil876A6432209E56B8AB5418E47146E09A" KeyPath="yes" Source="..\..\$(var.BUILD)\script.sql" />
+      </Component>
+      <Component Id="cmp59F46D08463A76EC4451D9522BF5A1C2" Guid="{6B5A5B28-5D63-4581-AC22-3CDA3A4E9E31}" Directory="INSTALLLOCATION">
+        <File Id="fil3EB920CD0636466E688957F1D789D247" KeyPath="yes" Source="..\..\$(var.BUILD)\SetupHelper.dll" />
+      </Component>
+      <Component Id="cmpF2196E5B9BDDD0C1EAF66A26BC5CE226" Guid="{AEE25CF8-D9D7-41A9-8DB4-F59201296449}" Directory="INSTALLLOCATION">
+        <File Id="fil64DBD341BE905155BA9432EA61C36FE4" KeyPath="yes" Source="..\..\$(var.BUILD)\ShineTech.TempCentre.BusinessFacade.dll" />
+      </Component>
+      <Component Id="cmpD22D8492416BFC153014A2F60452569A" Guid="{70413028-AA1A-43D9-B3D7-6787A9218C81}" Directory="INSTALLLOCATION">
+        <File Id="filB71DB08CB00E39E062A46ADAA7943100" KeyPath="yes" Source="..\..\$(var.BUILD)\ShineTech.TempCentre.DAL.dll" />
+      </Component>
+      <Component Id="cmp7031F1E696FBE1222026662DF5EFD839" Guid="{3C04AD68-6274-494A-BAFA-CEA8B95294E2}" Directory="INSTALLLOCATION">
+        <File Id="fil955EC43108CB0CCA194857D5889F5200" KeyPath="yes" Source="..\..\$(var.BUILD)\ShineTech.TempCentre.Platform.dll" />
+      </Component>
+      <Component Id="cmpD564B21467D314FDA93A4BCD0CDFAF13" Guid="{F47B8442-7D7A-4904-AF42-BF2076BDC7F3}" Directory="INSTALLLOCATION">
+        <File Id="fil7D07F7939E08E0B7E9143A3EA830D18E" KeyPath="yes" Source="..\..\$(var.BUILD)\ShineTech.TempCentre.SQLiteHelper.dll" />
+      </Component>
+      <Component Id="cmp6DB95F951CF077EA7E2FED621A6BF1D9" Guid="{C567C1DD-4DFD-467F-9C75-57E1DFED9ECB}" Directory="INSTALLLOCATION">
+        <File Id="fil154334ED1421DBE9DD99471C60D55ED2" KeyPath="yes" Source="..\..\$(var.BUILD)\ShineTech.TempCentre.Versions.dll" />
+      </Component>
+      <Component Id="cmp141E72169074FC913A116F5725770B63" Guid="{31A66370-F7DE-4C2E-BAD4-65E81710A65C}" Directory="INSTALLLOCATION">
+        <File Id="fil16F6844CDF8830E0F66DB5572F7B88A8" KeyPath="yes" Source="..\..\$(var.BUILD)\System.Data.SQLite.dll" />
+      </Component>
+      <Component Id="cmp83D44CD8A6A465BDE35B4A9723FADA75" Guid="{C2C5D1D6-7887-4E47-9782-E59AAA188F7C}" Directory="INSTALLLOCATION">
+        <File Id="filDF38EBF863494360FCE47859E21092AE" KeyPath="yes" Source="..\..\$(var.BUILD)\TempCentre.exe" />
+        <Shortcut Id="startmenuTs" Directory="ProgramMenuDir" Name="TempCentre Lite 1.0" WorkingDirectory='INSTALLLOCATION' Icon="TempCentre.exe" IconIndex="0" Advertise="yes" />
+        <Shortcut Id="desktopTs" Directory="DesktopFolder" Name="TempCentre Lite 1.0" WorkingDirectory='INSTALLLOCATION' Icon="TempCentre.exe" IconIndex="0" Advertise="yes" />
+      </Component>
+      <Component Id="cmp0805422B37E942144103AEF108034E0D" Guid="{4CB0F8C0-B9B9-4A93-83D1-577607355707}" Directory="INSTALLLOCATION">
+        <File Id="filCE90BACA7948158381819B77467A3FB5" KeyPath="yes" Source="..\..\$(var.BUILD)\TempCentre.exe.config" />
+      </Component>
+      <Component Id="cmpE223B708AC09296F21FEE48BF4466804" Guid="{9696EB02-ACFD-4FE6-95BF-E0732DA2601E}" Directory="INSTALLLOCATION">
+        <File Id="fil37A064AD3CED73F587C5F87ED78B30C7" KeyPath="yes" Source="..\..\$(var.BUILD)\TempSen.dll" />
+      </Component>
+      <Component Id="cmpC50D9DCF050BFD16E0E31B15CA36D49F" Guid="{2F996648-E46B-47FB-B623-096F19942D1A}" Directory="INSTALLLOCATION">
+        <File Id="fil77BB5539C9C1DA3DFDA4687FCDB52B5A" KeyPath="yes" Source="..\..\$(var.BUILD)\TempsenLibHid.exe" />
+      </Component>
+      <Component Id="cmp41C57D1C767AFB188FE0203D885D3DB9" Guid="{D6A8D73C-CDE9-4065-B8B1-F779CFADE017}" Directory="INSTALLLOCATION">
+        <File Id="fil9F74A09A1117218038165E18D3E4DA91" KeyPath="yes" Source="..\..\$(var.BUILD)\Lite\UpdateList.xml" />
+      </Component>
+      <Component Id="cmpBA61F86A83736619946E675DAA48BB76" Guid="{748CEEC9-8E9A-4141-BD47-89AB66466706}" Directory="INSTALLLOCATION">
+        <File Id="filBC6DF47D3A9FD2112F53E2B099F154B5" KeyPath="yes" Source="..\..\$(var.BUILD)\ZedGraph.dll" />
+      </Component>
+      <Component Id="compProgramMenuDir" Guid="{6886685C-E1B1-48d9-B6A7-548175BD8F17}" Directory="ProgramMenuDir">
+        <Shortcut Id="UninstallProduct" Name="Uninstall My Application" Directory="ProgramMenuDir" Target="[SystemFolder]msiexec.exe" Arguments="/x [ProductCode]" Description="Uninstall"/>
+        <RemoveFolder Id='rmvProgramMenuDir' On='uninstall' />
+        <RegistryValue Root='HKCU' Key='Software\[Manufacturer]\TempCentre' Type='string' Name='FileFolder' Value="[INSTALLLOCATION]"  Action="write"/>
+      </Component>
+      <!--<Component Id="RegistryEntries" Guid="{9BC5810B-F94E-45FE-BC67-DBC6700C3824}" Directory="INSTALLLOCATION">
+        <RegistryKey Root='HKLM' Key='Software\[Manufacturer]\[ProductName]'>
+          <RegistryValue Type='string' Name='FileFolder' Value="[INSTALLLOCATION]"  />
+        </RegistryKey>
+      </Component>-->
+    </ComponentGroup>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="dir5EF2D0B1CAF5A4F8F203006DD752775E">
+      <Component Id="cmpC5BA10CD7577CCE8B2887D06E061E056" Guid="{5F5B86F6-9335-4F6E-BD20-60755599D0A5}">
+        <File Id="fil6F837AD60A4A6D90F2B30F2926699B05" KeyPath="yes" Source="..\..\$(var.BUILD)\HardWare\DeviceRecorders.xml" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="ManufactureFolder" Name="TempSen">
+        <Directory Id="INSTALLLOCATION" Name="TempCentre">
+          <Directory Id="dir5EF2D0B1CAF5A4F8F203006DD752775E" Name="HardWare" />
+        </Directory>
+        </Directory>
+      </Directory>
+      <Directory Id="ProgramMenuFolder" Name="Programs">
+        <Directory Id="ProgramMenuDir" Name="TempCentre" />
+      </Directory>
+      <Directory Id="DesktopFolder" Name="Desktop" />
+    </Directory>
+  </Fragment>
+  <Fragment>
+    <UI>
+      <Dialog Id="UserRegistrationDlg" Width="370" Height="270" Title="[ProductName] [Setup]" NoMinimize="yes">
+        <Control Id="CDKeyLabel" Type="Text" X="45" Y="163" Width="70" Height="10" TabSkip="no">
+          <Text>Serial Number:</Text>
+        </Control>
+        <Control Id="CDKeyEdit" Type="MaskedEdit" X="105" Y="159" Width="300" Height="16" Property="PIDKEY" Text="[PIDTemplate]" />
+        <Control Id="Back" Type="PushButton" X="180" Y="243" Width="56" Height="17" Text="Back">
+          <Publish Event="NewDialog" Value="LicenseAgreementDlg">1</Publish>
+        </Control>
+        <Control Id="Next" Type="PushButton" X="236" Y="243" Width="56" Height="17" Default="yes"  Text="Next">
+          <Publish Event="ValidateProductID" Value="0">1</Publish>
+          <Publish Event="SpawnWaitDialog" Value="WaitForCostingDlg">CostingComplete = 1</Publish>
+          <Publish Event="NewDialog" Value="InstallDirDlg">ProductID</Publish>
+        </Control>
+        <Control Id="Cancel" Type="PushButton" X="304" Y="243" Width="56" Height="17" Cancel="yes"  Text="Cancel">
+          <Publish Event="SpawnDialog" Value="CancelDlg">1</Publish>
+        </Control>
+        <Control Id="BannerBitmap" Type="Bitmap" X="0" Y="0" Width="370" Height="44" TabSkip="no"  Text="WixUI_Bmp_Banner" />
+        <Control Id="Description" Type="Text" X="25" Y="23" Width="280" Height="15" Transparent="yes" NoPrefix="yes">
+          <Text>Please enter your CD KEYS</Text>
+        </Control>
+        <Control Id="BottomLine" Type="Line" X="0" Y="234" Width="370" Height="0" />
+        <Control Id="Title" Type="Text" X="15" Y="6" Width="200" Height="15" Transparent="yes" NoPrefix="yes">
+          <Text>{\WixUI_Font_Title}Serial Number Verifying</Text>
+        </Control>
+        <Control Id="BannerLine" Type="Line" X="0" Y="44" Width="370" Height="0" />
+      </Dialog>
+    </UI>
+  </Fragment>
+</Wix>

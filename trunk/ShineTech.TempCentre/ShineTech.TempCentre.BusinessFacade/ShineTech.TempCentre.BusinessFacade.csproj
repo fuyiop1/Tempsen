@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9F240844-FC86-4D6C-BA17-3374458341B2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ShineTech.TempCentre.BusinessFacade</RootNamespace>
+    <AssemblyName>ShineTech.TempCentre.BusinessFacade</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.SQLite, Version=1.0.66.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\Common.cs" />
+    <Compile Include="Core\ObjectManage.cs" />
+    <Compile Include="Core\UserSession.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AdministrationUI.cs" />
+    <Compile Include="UI\AdministratorUI.cs" />
+    <Compile Include="UI\ChangeDetailUI.cs" />
+    <Compile Include="UI\DeviceManageUI.cs" />
+    <Compile Include="UI\LoginUI.cs" />
+    <Compile Include="UI\MeaningsUI.cs" />
+    <Compile Include="UI\PolicyUI.cs" />
+    <Compile Include="UI\ReportConfigurationUI.cs" />
+    <Compile Include="UI\UserProfileUI.cs" />
+    <Compile Include="UI\UserWizardUI.cs" />
+    <Compile Include="WizardControl\Meaning.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WizardControl\Meaning.Designer.cs">
+      <DependentUpon>Meaning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WizardControl\UserCreate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WizardControl\UserCreate.Designer.cs">
+      <DependentUpon>UserCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WizardControl\UserMeaning.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WizardControl\UserMeaning.Designer.cs">
+      <DependentUpon>UserMeaning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WizardControl\UserPolicy.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WizardControl\UserPolicy.Designer.cs">
+      <DependentUpon>UserPolicy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WizardControl\UserRight.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WizardControl\UserRight.Designer.cs">
+      <DependentUpon>UserRight.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ShineTech.TempCentre.DAL\ShineTech.TempCentre.DAL.csproj">
+      <Project>{72E2CE88-403B-459F-B9B1-5729295EECA1}</Project>
+      <Name>ShineTech.TempCentre.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShineTech.TempCentre.Platform\ShineTech.TempCentre.Platform.csproj">
+      <Project>{F18650F0-3F9C-43CB-A13C-7FEE6030A8CA}</Project>
+      <Name>ShineTech.TempCentre.Platform</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WizardControl\Meaning.resx">
+      <DependentUpon>Meaning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WizardControl\UserCreate.resx">
+      <DependentUpon>UserCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WizardControl\UserMeaning.resx">
+      <DependentUpon>UserMeaning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WizardControl\UserPolicy.resx">
+      <DependentUpon>UserPolicy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WizardControl\UserRight.resx">
+      <DependentUpon>UserRight.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\del.png" />
+    <Content Include="Resources\del1.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

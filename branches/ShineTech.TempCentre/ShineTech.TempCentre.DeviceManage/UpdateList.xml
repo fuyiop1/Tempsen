@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="gb2312"?>
+<AutoUpdater>
+  <description>Application autoUpdate</description>
+  <Updater>
+	<Url>http://www.tempsen.com/update/software/tempcentre/</Url>
+	<LastUpdateTime>2005-09-05</LastUpdateTime>
+  </Updater>
+  <Application applicationId="TempCentre">
+    <EntryPoint>TempCentre.exe</EntryPoint>
+    <Location>.</Location>
+	<Version>1.0.0.4</Version>
+  </Application>
+  <Files>
+  </Files>
+</AutoUpdater>

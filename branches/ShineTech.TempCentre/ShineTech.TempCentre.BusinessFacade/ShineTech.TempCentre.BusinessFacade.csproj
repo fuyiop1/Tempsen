@@ -1,0 +1,423 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9F240844-FC86-4D6C-BA17-3374458341B2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ShineTech.TempCentre.BusinessFacade</RootNamespace>
+    <AssemblyName>ShineTech.TempCentre.BusinessFacade</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Babu.Windows">
+      <HintPath>..\Reference\Babu.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.1.1.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Reference\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\Reference\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Outlook, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\Reference\Microsoft.Office.Interop.Outlook.dll</HintPath>
+    </Reference>
+    <Reference Include="Office, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\Reference\Office.dll</HintPath>
+    </Reference>
+    <Reference Include="PDFLibNet">
+      <HintPath>..\Reference\PDFLibNet.dll</HintPath>
+    </Reference>
+    <Reference Include="PDFView">
+      <HintPath>..\Reference\PDFView.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.SQLite, Version=1.0.66.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Reference\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZedGraph, Version=5.1.5.30718, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Reference\ZedGraph.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\ActivityLogManager.cs" />
+    <Compile Include="Core\Common.cs" />
+    <Compile Include="Core\ConfigurationProfile.cs" />
+    <Compile Include="Core\ELogTI.cs" />
+    <Compile Include="Core\ELogTIFactory.cs" />
+    <Compile Include="Core\Factory.cs" />
+    <Compile Include="Core\FullScreen.cs" />
+    <Compile Include="Core\IShowDevice.cs" />
+    <Compile Include="Core\ITAGPDF.cs" />
+    <Compile Include="Core\ITAGPDFFactory.cs" />
+    <Compile Include="Core\ITAGSingleUse.cs" />
+    <Compile Include="Core\ITAGSingleUseFactory.cs" />
+    <Compile Include="Core\ListBoxExtension.cs" />
+    <Compile Include="Core\LogAction.cs" />
+    <Compile Include="Core\MouseKeyHooker.cs" />
+    <Compile Include="Core\RightsText.cs" />
+    <Compile Include="Core\SuperDevice.cs" />
+    <Compile Include="Core\Tempod.cs" />
+    <Compile Include="Core\TempodFactory.cs" />
+    <Compile Include="Core\TextAndImageColumn.cs" />
+    <Compile Include="Core\UserSession.cs" />
+    <Compile Include="DeviceControl\AuditTrial.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeviceControl\AuditTrial.Designer.cs">
+      <DependentUpon>AuditTrial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceControl\CustomComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DeviceControl\DataManagerUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeviceControl\DataManagerUC.Designer.cs">
+      <DependentUpon>DataManagerUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceControl\DeviceLeft.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeviceControl\DeviceLeft.Designer.cs">
+      <DependentUpon>DeviceLeft.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceControl\HeaderPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DeviceControl\HeaderPanel.Designer.cs">
+      <DependentUpon>HeaderPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceControl\InputBoxForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeviceControl\InputBoxForm.Designer.cs">
+      <DependentUpon>InputBoxForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceControl\ProgressStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeviceControl\ProgressStatus.Designer.cs">
+      <DependentUpon>ProgressStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceControl\ReportPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeviceControl\ReportPanel.Designer.cs">
+      <DependentUpon>ReportPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceControl\RowMergeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DeviceControl\RowMergeView.designer.cs">
+      <DependentUpon>RowMergeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceControl\SectionControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DeviceControl\SectionControl.Designer.cs">
+      <DependentUpon>SectionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceControl\SignConfirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeviceControl\SignConfirm.Designer.cs">
+      <DependentUpon>SignConfirm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceControl\ViewManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeviceControl\ViewManager.Designer.cs">
+      <DependentUpon>ViewManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\ObjectManage.cs" />
+    <Compile Include="Graph\GraphHelper.cs" />
+    <Compile Include="HardWare\ConnectionController.cs" />
+    <Compile Include="Idle\ActivityEventArgs.cs" />
+    <Compile Include="Idle\ActivityMessages.cs" />
+    <Compile Include="Idle\ApplicationIdle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Idle\TickEventArgs.cs" />
+    <Compile Include="Idle\WarnSettings.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportService\AuditTrailExporter.cs" />
+    <Compile Include="ReportService\ExcelReportExporter.cs" />
+    <Compile Include="ReportService\FileHelper.cs" />
+    <Compile Include="ReportService\HeaderFooterTester.cs" />
+    <Compile Include="ReportService\IPrintService.cs" />
+    <Compile Include="ReportService\IReportEmailService.cs" />
+    <Compile Include="ReportService\IReportExportService.cs" />
+    <Compile Include="ReportService\PdfElementGenerator.cs" />
+    <Compile Include="ReportService\PdfPageEventHelperForFooter.cs" />
+    <Compile Include="ReportService\PDFReportExporter.cs" />
+    <Compile Include="ReportService\PDFReportPrinter.cs" />
+    <Compile Include="ReportService\ReportConstString.cs" />
+    <Compile Include="ReportService\ReportDataGenerator.cs" />
+    <Compile Include="ReportService\ReportEditorExporter.cs" />
+    <Compile Include="ReportService\ReportOutlookEmailer.cs" />
+    <Compile Include="ReportService\ReportExporter.cs" />
+    <Compile Include="ReportService\ReportPublicControlEventInitializer.cs" />
+    <Compile Include="ReportService\TempsenFormatHelper.cs" />
+    <Compile Include="Signature\SignatureHelper.cs" />
+    <Compile Include="UI\AdministrationUI.cs" />
+    <Compile Include="UI\DeviceManageUI.cs" />
+    <Compile Include="UI\LoginUI.cs" />
+    <Compile Include="UI\OptionsUI.cs" />
+    <Compile Include="UI\PolicyUI.cs" />
+    <Compile Include="UI\TrialValidationUI.cs" />
+    <Compile Include="UI\UserAccountUI.cs" />
+    <Compile Include="UI\UserWizardUI.cs" />
+    <Compile Include="ViewModel\HistoryRecordDataViewModel.cs" />
+    <Compile Include="ViewModel\MeaningViewModel.cs" />
+    <Compile Include="WizardControl\MeanCheckListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WizardControl\MeanCheckListBox.Designer.cs">
+      <DependentUpon>MeanCheckListBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WizardControl\UserCreate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WizardControl\UserCreate.Designer.cs">
+      <DependentUpon>UserCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WizardControl\UserMeaning.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WizardControl\UserMeaning.Designer.cs">
+      <DependentUpon>UserMeaning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WizardControl\UserPolicy.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WizardControl\UserPolicy.Designer.cs">
+      <DependentUpon>UserPolicy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WizardControl\UserRight.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WizardControl\UserRight.Designer.cs">
+      <DependentUpon>UserRight.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\trunk\ShineTech.TempCentre\TempsenLibHid\TempsenLibHid.csproj">
+      <Project>{5C3C31C9-A427-4C38-B5C6-E5A70BA7CA40}</Project>
+      <Name>TempsenLibHid</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\trunk\ShineTech.TempCentre\TempSenLib\TempSen.csproj">
+      <Project>{F035A30D-5A64-4E01-B43F-F1B843A153B2}</Project>
+      <Name>TempSen</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShineTech.TempCentre.DAL\ShineTech.TempCentre.DAL.csproj">
+      <Project>{72E2CE88-403B-459F-B9B1-5729295EECA1}</Project>
+      <Name>ShineTech.TempCentre.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShineTech.TempCentre.Platform\ShineTech.TempCentre.Platform.csproj">
+      <Project>{F18650F0-3F9C-43CB-A13C-7FEE6030A8CA}</Project>
+      <Name>ShineTech.TempCentre.Platform</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShineTech.TempCentre.Versions\ShineTech.TempCentre.Versions.csproj">
+      <Project>{F40B358D-52AC-452C-8906-A54D2C19997C}</Project>
+      <Name>ShineTech.TempCentre.Versions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TranspControl\TranspControl.csproj">
+      <Project>{99556521-01B9-453D-8A4D-B5DD7CEABD0D}</Project>
+      <Name>TranspControl</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DeviceControl\AuditTrial.resx">
+      <DependentUpon>AuditTrial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceControl\DataManagerUC.resx">
+      <DependentUpon>DataManagerUC.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceControl\DeviceLeft.resx">
+      <DependentUpon>DeviceLeft.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceControl\InputBoxForm.resx">
+      <DependentUpon>InputBoxForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceControl\ProgressStatus.resx">
+      <DependentUpon>ProgressStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceControl\ReportPanel.resx">
+      <DependentUpon>ReportPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceControl\RowMergeView.resx">
+      <DependentUpon>RowMergeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceControl\SignConfirm.resx">
+      <DependentUpon>SignConfirm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceControl\ViewManager.resx">
+      <DependentUpon>ViewManager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WizardControl\UserCreate.resx">
+      <DependentUpon>UserCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WizardControl\UserMeaning.resx">
+      <DependentUpon>UserMeaning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WizardControl\UserPolicy.resx">
+      <DependentUpon>UserPolicy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WizardControl\UserRight.resx">
+      <DependentUpon>UserRight.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wk_vm_h.png" />
+    <None Include="Resources\wk_vm.png" />
+    <None Include="Resources\wk_cd_h.png" />
+    <None Include="Resources\wk_cd.png" />
+    <None Include="Resources\wk_at.png" />
+    <None Include="Resources\system_audit.gif" />
+    <None Include="Resources\wrong_cross.gif" />
+    <None Include="Resources\tempsen.png" />
+    <None Include="Resources\tb_mail.png" />
+    <None Include="Resources\tb_update_s.png" />
+    <None Include="Resources\tb_print_s.png" />
+    <None Include="Resources\tb_mail_s.png" />
+    <None Include="Resources\tb_DM_h.png" />
+    <None Include="Resources\tb_DB_h.png" />
+    <None Include="Resources\tb_audit_h.png" />
+    <None Include="Resources\tb_admin_s.png" />
+    <None Include="Resources\tb_export_s.png" />
+    <None Include="Resources\tb_update.png" />
+    <None Include="Resources\tb_export.png" />
+    <None Include="Resources\tb_admin.png" />
+    <None Include="Resources\tb_DM_s.png" />
+    <None Include="Resources\tb_DM.png" />
+    <None Include="Resources\tb_DB_s.png" />
+    <None Include="Resources\tb_DB.png" />
+    <None Include="Resources\tb_audit_s.png" />
+    <None Include="Resources\tb_audit.png" />
+    <None Include="Resources\sysaudit.jpg" />
+    <None Include="Resources\anaaudit.jpg" />
+    <None Include="Resources\arrow_down.gif" />
+    <None Include="Resources\arrow_up.gif" />
+    <None Include="Resources\analyze_audit.gif" />
+    <None Include="Resources\bar.gif" />
+    <Content Include="HardWare\DeviceRecorders.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\05043133.gif" />
+    <None Include="Resources\bar1.gif" />
+    <None Include="Resources\bar2.gif" />
+    <None Include="Resources\1.gif" />
+    <None Include="Resources\2.gif" />
+    <None Include="Resources\3.gif" />
+    <None Include="Resources\A1.gif" />
+    <None Include="Resources\A2.gif" />
+    <None Include="Resources\A3.gif" />
+    <None Include="Resources\A4.gif" />
+    <None Include="Resources\A5.gif" />
+    <None Include="Resources\A6.gif" />
+    <None Include="Resources\circle.gif" />
+    <None Include="Resources\arrow_left.gif" />
+    <None Include="Resources\arrow_down_hover.gif" />
+    <None Include="Resources\arrow_up_hover.gif" />
+    <None Include="Resources\arrow_left_hover.gif" />
+    <Content Include="Resources\del.png" />
+    <Content Include="Resources\del1.png" />
+    <None Include="Resources\more.gif" />
+    <None Include="Resources\full_screen.png" />
+    <None Include="Resources\full_screen_exit.png" />
+    <None Include="Resources\Graph_back.png" />
+    <None Include="Resources\Graph_more.png" />
+    <None Include="Resources\fullscreen.gif" />
+    <None Include="Resources\pbAlarm.jpg" />
+    <None Include="Resources\fullscreen_exit.gif" />
+    <None Include="Resources\Report_cross_small.jpg" />
+    <None Include="Resources\Report_ok_small.jpg" />
+    <None Include="Resources\Report_cross.jpg" />
+    <None Include="Resources\Report_ok.jpg" />
+    <None Include="Resources\graph_back_h.png" />
+    <None Include="Resources\graph_more_h.png" />
+    <None Include="Resources\detailed_list.gif" />
+    <None Include="Resources\graph_back.gif" />
+    <None Include="Resources\graph_back_h.gif" />
+    <None Include="Resources\graph_collapse.gif" />
+    <None Include="Resources\graph_collapse_h.gif" />
+    <None Include="Resources\graph_more.gif" />
+    <None Include="Resources\graph_more_h.gif" />
+    <None Include="Resources\detailed_list_hover.gif" />
+    <None Include="Resources\fullscreen_exit_hover.gif" />
+    <None Include="Resources\fullscreen_hover.gif" />
+    <Content Include="Resources\Rights.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

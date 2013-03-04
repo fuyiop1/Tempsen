@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "TempsenSetup", "TempsenSetup\TempsenSetup.wixproj", "{F7307E47-519A-4B66-8004-39C34E091D9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TempCentreCustomAction", "TempCentreCustomAction\TempCentreCustomAction.csproj", "{479128EE-4852-41DF-A882-BD8AE5C09575}"
+EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "TempsenStanderSetup", "TempsenStanderSetup\TempsenStanderSetup.wixproj", "{F86C0AAC-85A4-4CEC-8C66-9440D6EE041E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F7307E47-519A-4B66-8004-39C34E091D9D}.Debug|x86.ActiveCfg = Debug|x86
+		{F7307E47-519A-4B66-8004-39C34E091D9D}.Debug|x86.Build.0 = Debug|x86
+		{F7307E47-519A-4B66-8004-39C34E091D9D}.Release|x86.ActiveCfg = Release|x86
+		{F7307E47-519A-4B66-8004-39C34E091D9D}.Release|x86.Build.0 = Release|x86
+		{479128EE-4852-41DF-A882-BD8AE5C09575}.Debug|x86.ActiveCfg = Debug|x86
+		{479128EE-4852-41DF-A882-BD8AE5C09575}.Debug|x86.Build.0 = Debug|x86
+		{479128EE-4852-41DF-A882-BD8AE5C09575}.Release|x86.ActiveCfg = Release|x86
+		{479128EE-4852-41DF-A882-BD8AE5C09575}.Release|x86.Build.0 = Release|x86
+		{F86C0AAC-85A4-4CEC-8C66-9440D6EE041E}.Debug|x86.ActiveCfg = Debug|x86
+		{F86C0AAC-85A4-4CEC-8C66-9440D6EE041E}.Debug|x86.Build.0 = Debug|x86
+		{F86C0AAC-85A4-4CEC-8C66-9440D6EE041E}.Release|x86.ActiveCfg = Release|x86
+		{F86C0AAC-85A4-4CEC-8C66-9440D6EE041E}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

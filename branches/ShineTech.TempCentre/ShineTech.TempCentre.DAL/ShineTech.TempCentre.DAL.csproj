@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{72E2CE88-403B-459F-B9B1-5729295EECA1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ShineTech.TempCentre.DAL</RootNamespace>
+    <AssemblyName>ShineTech.TempCentre.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.66.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Reference\System.Data.SQLite.dll</HintPath>
+      <Private>True</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attribute\ColumnAttribute.cs" />
+    <Compile Include="Attribute\TableAttribute.cs" />
+    <Compile Include="BLL\AlarmConfigBLL.cs" />
+    <Compile Include="BLL\DeviceBLL.cs" />
+    <Compile Include="BLL\DigitalSignatureBLL.cs" />
+    <Compile Include="BLL\LogConfigBLL.cs" />
+    <Compile Include="BLL\MeaningsBLL.cs" />
+    <Compile Include="BLL\OperationLogBLL.cs" />
+    <Compile Include="BLL\PointTempBLL.cs" />
+    <Compile Include="BLL\PolicyBLL.cs" />
+    <Compile Include="BLL\ReportEditorBLL.cs" />
+    <Compile Include="BLL\UserInfoBLL.cs" />
+    <Compile Include="BLL\UserProfileBLL.cs" />
+    <Compile Include="BLL\UserRightBLL.cs" />
+    <Compile Include="Entity\AlarmConfig.cs" />
+    <Compile Include="Entity\Device.cs" />
+    <Compile Include="Entity\DigitalSignature.cs" />
+    <Compile Include="Entity\HistoryRecordData.cs" />
+    <Compile Include="Entity\LogConfig.cs" />
+    <Compile Include="Entity\Meanings.cs" />
+    <Compile Include="Entity\OperationLog.cs" />
+    <Compile Include="Entity\PointInfo.cs" />
+    <Compile Include="Entity\Policy.cs" />
+    <Compile Include="Entity\ProductType.cs" />
+    <Compile Include="Entity\ReportConfig.cs" />
+    <Compile Include="Entity\ReportEditor.cs" />
+    <Compile Include="Entity\RoleInfo.cs" />
+    <Compile Include="Entity\UserInfo.cs" />
+    <Compile Include="Entity\UserMeanRelation.cs" />
+    <Compile Include="Entity\UserProfile.cs" />
+    <Compile Include="Entity\UserRight.cs" />
+    <Compile Include="IDAL\IDataProcessor.cs" />
+    <Compile Include="IDAL\IEntity.cs" />
+    <Compile Include="Processor\DeviceProcessor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\trunk\ShineTech.TempCentre\TempSenLib\TempSen.csproj">
+      <Project>{F035A30D-5A64-4E01-B43F-F1B843A153B2}</Project>
+      <Name>TempSen</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShineTech.TempCentre.SQLiteHelper\ShineTech.TempCentre.SQLiteHelper.csproj">
+      <Project>{2B61A285-D173-4A31-A60F-2A5053A6F3ED}</Project>
+      <Name>ShineTech.TempCentre.SQLiteHelper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
